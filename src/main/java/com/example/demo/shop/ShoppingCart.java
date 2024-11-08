@@ -1,5 +1,6 @@
-package com.example.demo.config;
+package com.example.demo.shop;
 
+import org.springframework.context.annotation.Lazy;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
@@ -8,6 +9,7 @@ import java.util.List;
 
 @Component
 @Scope("prototype")
+@Lazy
 public class ShoppingCart {
     private List<String> items = new ArrayList<>();
 

@@ -14,12 +14,39 @@ import java.nio.charset.StandardCharsets;
 @RestController
 @RequestMapping("/resource")
 public class ResourceController {
-
     @Value("classpath:banner.txt")
     private Resource resource;
 
     @GetMapping()
     public String resource() throws IOException {
+        try (
+                BufferedReader reader = new BufferedReader(
+                        new InputStreamReader(this.resource.getInputStream(), StandardCharsets.UTF_8)
+                )
+        ) {
+            reader.lines().forEachOrdered(System.out::println);
+        }
+
+        return "value";
+    }
+
+    public String resource1() throws IOException {
+        //Resource resource = new FileSystemResource("c:/test/banner.txt");
+
+        try (
+                BufferedReader reader = new BufferedReader(
+                        new InputStreamReader(this.resource.getInputStream(), StandardCharsets.UTF_8)
+                )
+        ) {
+            reader.lines().forEachOrdered(System.out::println);
+        }
+
+        return "value";
+    }
+
+    public String resource2() throws IOException {
+        //Resource resource = new UrlResource("http://www.test.com/banner.txt");
+
         try (
                 BufferedReader reader = new BufferedReader(
                         new InputStreamReader(this.resource.getInputStream(), StandardCharsets.UTF_8)
