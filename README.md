@@ -67,6 +67,59 @@
     예를 들어 @DependsOn("somebean")을 설정하면 "somebean"이 먼저 초기화가 진행이 되고
     그 후 @DependsOn 을 설정한 대상이 초기화가 진행된다.
 
+# BeanPostProcessor(후처리)
 
+    모든 빈 인스턴스 또는 특정 빈 인스턴스에 대한 후처리기를 생성합니다.
+
+
+# @Required
+
+    Spring Framework는 @Required 를 감지해서 값의 존재 여부를 조사합니다.
+    값이 없을 경우 BeanInitializationException 예외를 발생합니다.
+
+# @Profile
+
+    개발, 테스트, 운영 환경에 따라 DB 설정을 다르게 구성하기
+    1. @Profile 어노테이션을 사용해서 "DataSourceConfig" 를 구성합니다.
+    2. "application.properties" 를 설정합니다.
+
+    # "DataSourceConfig.java, application.properties" 를 참고하세요.
+    # MySql 의존성
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-data-jdbc</artifactId>
+    </dependency>
+
+    <dependency>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+        <version>8.0.33</version>
+    </dependency>
+
+# @Aspect
+
+    AOP(애스펙트 지향 프로그래밍, Aspect Orientied Programming)
+    관점 주의 프로그래밍, log 및 트랙잭션 설정
+
+    AspectJ 는 다양한 종류의 포인트를 매치할 수 있는 강력한 표현식 언어를 제공합니다.
+    Spring Framework AOP 는 IoC 컨테이너 안에 선언된 빈에 국한됩니다.
+
+    1. @EnableAspectJAutoProxy 선언("AspectConfig" 파일 참고)
+    2. Aspect 관점 설정("AspectLog" 파일 참고)
+    @Before, @AfterReturning, @After, @AfterThrowing, @Around
+
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-aop</artifactId>
+        <version>3.3.3</version>
+    </dependency>
+
+    추가 사항
+    @DeclareParents
+
+    
+    
+
+    
     
 
